@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="description" content="JAGOSOFT">
+<meta name="keywords" content="SOFTWARE, HARDWARE, ROBOTICS, CYBORNETICS, CYBER-SECURITY, AI, ARCHER">
+<meta name="author" content="Jim Gogarty">
+
+<meta property="og:title" content="JAGO" />
+<meta property="og:image" content="" />
+<meta property="og:description" content="Allways a Pleasure, Never a Chore." />
+<meta property="og:url" content="https://jimgogarty.com/terminal/" />
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="" />
+<meta name="twitter:title" content="" />
+<meta name="twitter:description" content="" />
+<meta name="twitter:image" content="" />
+<meta name="twitter:url" content="" />
+
+<meta name="viewport" content = "width = 900">
+<meta name="apple-mobile-web-app-title" content="jimgogarty.com/terminal/">
+
+<title>Jim Gogarty</title>
+
+<link rel="image_src" href="" />
+<link href="stylesheet.css" rel="stylesheet" type="text/css">
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<!-- Font Awesome icons (free version)-->
+<script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+<!-- Google fonts-->
+<link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+
+<script>
+
+</script>
+
+</head>
+<!-- Hello. Say Hi if you are reading this.
+-->
+<body> 
+<div class="main_menu_container">
+        <ul id="main_menu">
+              
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div id="logo">
+<n>
+
+░░░░░██╗██╗███╗░░░███╗░██████╗░░█████╗░░██████╗░░█████╗░██████╗░████████╗██╗░░░██╗░░░░█████╗░░█████╗░███╗░░░███╗
+░░░░░██║██║████╗░████║██╔════╝░██╔══██╗██╔════╝░██╔══██╗██╔══██╗╚══██╔══╝╚██╗░██╔╝░░░██╔══██╗██╔══██╗████╗░████║
+░░░░░██║██║██╔████╔██║██║░░██╗░██║░░██║██║░░██╗░███████║██████╔╝░░░██║░░░░╚████╔╝░░░░██║░░╚═╝██║░░██║██╔████╔██║
+██╗░░██║██║██║╚██╔╝██║██║░░╚██╗██║░░██║██║░░╚██╗██╔══██║██╔══██╗░░░██║░░░░░╚██╔╝░░░░░██║░░██╗██║░░██║██║╚██╔╝██║
+╚█████╔╝██║██║░╚═╝░██║╚██████╔╝╚█████╔╝╚██████╔╝██║░░██║██║░░██║░░░██║░░░░░░██║░░░██╗╚█████╔╝╚█████╔╝██║░╚═╝░██║
+░╚════╝░╚═╝╚═╝░░░░░╚═╝░╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░╚═╝░░░╚═╝░╚════╝░░╚════╝░╚═╝░░░░░╚═╝
+</n>
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<span id="tagline">“Always a Pleasure, Never a Chore.”</span>
+
+<br>
+<br>
+<br>
+<br>
+<div id="box_title_container">
+	<div id="box_title">Hey, How are you today?</div>
+</div>
+
+<div class="terminal">
+  <p>
+    <span id="text"></span><span class="cursor"></span>
+  </p>
+</div>
+
+<script>
+  const text = `GUEST@JIMGOGARTY.COM-$: \n\n 
+  Hello I am Jim Gogarty BBS, HDIP COMPUTER SCIENCE, wellcome to my personal website.\n
+  I am a IT Professional working in the Pharma Sector.\n
+  I am interested in all things IT, Crypto, AI and Technology in General.\n\n
+  Need Help with IT on a Charity or Volunteer project,\n
+  I would be glad to hear from you and have a Coffee\n\n\n
+  
+
+  Why not have a look at my about page or contact me on my Socails below.\n 
+  GUEST@JIMGOGARTY.COM-$:`;
+  const speed = 75; // in milliseconds
+
+  let i = 0;
+  let terminal = document.querySelector(".terminal");
+  let textElement = document.querySelector("#text");
+  let cursorElement = document.querySelector(".cursor");
+
+  function typeText() {
+    if (i < text.length) {
+      let char = text.charAt(i);
+      if (char === "\n") {
+        textElement.innerHTML += "<br>";
+      } else {
+        textElement.innerHTML += "<span>" + char + "</span>";
+      }
+      i++;
+      setTimeout(typeText, speed);
+    } else {
+      //cursorElement.style.display = "none";
+    }
+
+    terminal.scrollTop = terminal.scrollHeight; // auto-scroll to bottom
+  }
+
+  setTimeout(typeText, speed);
+</script>
+</body>
+<footer>
+  Jim Gogarty 2024
+  <div class="social-icons">
+    <a class="social-icon" href="www.linkedin.com/in/jim-gogarty"><i class="fab fa-linkedin-in"></i></a>
+    <a class="social-icon" href="https://github.com/jimgogarty"><i class="fab fa-github"></i></a>
+    <a class="social-icon" href="https://twitter.com/Jimberly20"><i class="fab fa-twitter"></i></a>
+    
+</div>
+</footer>
+</html>

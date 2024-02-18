@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="Jim Gogarty" />
+        <title>JimGogarty.com</title>
+        <link rel="icon" type="image/x-icon" href="assets/img/blob.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">
+                <span class="d-block d-lg-none">Jim Gogarty BBS, HDIP COMPUTER SCIENCE, CC</span>
+                <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="assets/img/profile.jpg" alt="..." /></span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
+                </ul>
+
+            </div>
+        </nav>
+        <!-- Page Content-->
+        <div class="container-fluid p-0">
+            <!-- About-->
+            <section class="resume-section" id="about">
+                <div class="resume-section-content">
+                    <h1 class="mb-0">
+                        Jim
+                        <span class="text-primary">Gogarty</span>
+                        
+                    </h1>
+                    <div class="subheading mb-5">
+                        BBS, Hdip Computer Science, CC <br>
+                        Experienced IT Support Technician | AWS, (ISC)² Member.<br>
+                        <a href="mailto:hey@jimgogarty.com">hey@jimgogarty.com</a>
+                    </div>
+                    <p class="lead mb-5">
+                        
+                        Jim Gogarty is an IT support and administration expert with over four years of experience at PCO Manufacturing,
+                        a leading pharmaceutical contract manufacturer. He holds an AWS Cloud Practitioner certification and is pursuing 
+                        an (ISC)² Candidate credential to advance his cybersecurity skills. <br>
+                        At PCO Manufacturing, Jim leads and mentors a junior tech support team member, oversees the IT change control policy, 
+                        and implements various cybersecurity projects. He has reduced unplanned system outages by 80%, enhanced transparency 
+                        in IT change management, and strengthened the company's cybersecurity posture. <br>
+                        Jim is passionate about leveraging innovative 
+                        technologies and streamlining business processes to improve productivity and efficiency. He is a proactive problem solver, 
+                        always seeking new challenges and opportunities to grow professionally. Jim's diverse experience, ranging from e-commerce 
+                        business ownership to construction foreperson, demonstrates his adaptability and commitment to excellence in every role he undertakes.
+                    
+                    
+                    </p>
+                    <p class="lead mb-5">Need Help with IT on a Charity or Volunteer project, <br>
+                        I would be glad to hear from you and have a Coffee.</p>
+                    <div class="social-icons">
+                        <a class="social-icon" href="https://www.linkedin.com/in/jim-gogarty/"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="social-icon" href="https://github.com/jimgogarty"><i class="fab fa-github"></i></a>
+                        <a class="social-icon" href="https://twitter.com/Jimberly20"><i class="fab fa-twitter"></i></a>
+                        
+                    </div>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <!-- Experience-->
+            <section class="resume-section" id="experience">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Experience</h2>
+
+<div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+    <div class="flex-grow-1">
+        <h3 class="mb-0">IT Support Specialist.</h3>
+        <div class="subheading mb-3">Tayto Snacks</div>
+        <p>
+            I am a  Technical Support Specialist working with new and innovative technologies. <br>
+
+            I am  hard working and always looking to improve and stream line business processes and always ready to take on a challenge. 
+        </p>
+
+    </div>
+    <div class="flex-shrink-0"><span class="text-primary">Nov 2023 - Present</span></div>
+</div>
+
+
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">Senior IT Support Technician/Administrator</h3>
+                            <div class="subheading mb-3">PCO Manufacturing</div>
+                            <p>
+                                • Mentored and developed a junior tech support team member, improving their technical skills and contribution to the department.<br>
+                                <br>
+                                IT Change Control Policy Implementation:<br>
+                                • Reduced unplanned system outages by 80% through better change control management, resulting in increased system reliability and minimized disruption to operations.<br>
+                                • Enhanced transparency in IT change management, leading to faster identification and resolution of issues.<br>
+                                <br>
+                                Cybersecurity Projects:<br>
+                                • Implemented firewall changes, antivirus scanning, SSL inspection, and ESET antivirus, reducing the number of security incidents by 25% and strengthening the company's cybersecurity posture.<br>
+                                • Deployed MDM policy on all handheld devices, ensuring data security and compliance, reducing the risk of data breaches by 100%.<br>
+                                • Strengthened email security, reducing phishing attacks by 90% and enhancing email communication reliability<br>
+                                <br>
+                                Infrastructure Upgrades:<br>
+                                • Led a team to upgrade the primary data centre, resulting in a 35% increase in processing speed and a 15% reduction in energy consumption, leading to cost savings.<br>
+                                • Ensured high availability of business-critical systems, resulting in zero unplanned downtime over the past 3 years.<br>
+                                <br>
+                                Data Digitization:<br>
+                                • Led a project to digitise legacy paperwork using Trax digital scanning, reducing physical storage costs by 40% and streamlining document retrieval, saving an estimated 40 hours per month.<br>
+                                • Launched SharePoint for better document management, improving collaboration and document version control, resulting in a 30% reduction in document-related errors.Email Migration and Security:<br>
+                                <br>
+                                Backup and Recovery Systems:<br>
+                                • Implemented High Availability on all critical systems, resulting in 99.99% system uptime and reducing data recovery time by 100% in the event of a disaster.<br>
+                                • Streamlined backup and recovery processes, saving 5 hours per week in IT administrative time and reducing potential data loss by 95%.<br>
+                                <br>
+			   </p>
+				<h4 class="mb-5">Technologies I work with</h4>
+			<p>
+				<ul>
+				<li>AWS & Azure</li>
+				<li>Dell Power Edge and VMware</li>
+				<li>HP and Unifi Networks</li>
+				<li>Fortigate</li>
+				<li>Azure AD and Intune</li>
+			
+
+				</ul>
+		      	</p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">June 2019 - Nov 2023</span></div>
+                    </div>
+                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
+                        <div class="flex-grow-1">
+                            <h3 class="mb-0">IT Support & Administration</h3>
+                            <div class="subheading mb-3">ORH Marketing</div>
+                            <p></p>
+                        </div>
+                        <div class="flex-shrink-0"><span class="text-primary">2017 - 2019</span></div>
+                    </div>
+                    
+                </div>
+            </section>
+            <hr class="m-0" />
+           
+            <!-- Interests-->
+            <section class="resume-section" id="interests">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Interests</h2>
+                    <p></p>
+                    <p class="mb-0">
+			I follow a number of sci-fi and fantasy genre movies and television shows, and Computer Games.
+				
+                        I spend a large amount of my free time exploring the latest technology advancements such as the blockchain.
+			
+			Like it or not crypto currency is seeing wide spread adoption across the world.<br> 
+			The blockchain is a major step forward in decentralising technology and information. 
+			<br>
+			<br>
+			<p>
+				I have made my own Solana Token called JAGO SOLANA. I am wroking on way to add some utility to the token and I will post up soon. <br>
+				Check out the<a href="https://explorer.solana.com/address/BjkAiRpUhtQZk4mZuTXGkb6pM92A6Kr7GkjmExzfYdaK"> Solana Blockchain Exploer</a> to see my coin, if you send me you wallet address I might send you a few. 
+				
+			</p>
+			<br>
+
+			Here are some usefull links and info i have picked up along the way. 
+		  	<br>
+			<br>
+			<h6>Crypto Exchanges</h6>
+			Binance, For intermediaties<br>
+			<a href="https://accounts.binance.com/en/register?ref=414738131">Biance Referal</a><br><br>
+
+			Coinbase, For Beginers.You can often get free new Crypto Coins on this site. <br>
+			<a href="https://coinbase.com/join/jcydbm?src=referral-link"> Coinbase Referal</a>
+			<br><br>
+			<br>
+			<h6>Usefull Links</h6>
+			
+			Coin Bureau, Lots of impartial balanced and information on all things Crypto.<br>
+			<a href="https://www.youtube.com/c/CoinBureau"> Coin Bureau Youtube chanel.</a>
+
+			<br>
+			Coin Market Cap.
+			<br>
+		    </p>
+			<script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinPriceBlock.js"></script>
+			<div id="coinmarketcap-widget-coin-price-block" coins="1,1027,825,3794,5426,6636" currency="USD" theme="light" transparent="true" show-symbol-logo="true"></div>
+
+                </div>
+            </section>
+            <section class="resume-section" id="skills">
+                <div class="resume-section-content">
+                    <h2 class="mb"Skills>
+                    <div class="subheading mb-3">Interests and Skills</div>
+                    <ul class="list-inline dev-icons">
+                        <li class="list-inline-item"><i class="fa-brands fa-linux"></i></li>
+                        <li class="list-inline-item"><i class="fa-brands fa-windows"></i></li>
+                        <li class="list-inline-item"><i class="fa-brands fa-raspberry-pi"></i></li>
+                        <li class="list-inline-item"><i class="fa-brands fa-ubuntu"></i></li>
+                        <li class="list-inline-item"><i class="fa-brands fa-python"></i></li>
+                        <li class="list-inline-item"><i class="fa-brands fa-bitcoin"></i></li>
+                    </ul>
+                    <div class="subheading mb-3">Skills</div>
+			  <div class="app-container">
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Linux & Windows System Administration
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>                           
+                            Technical Support
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Project Management
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-check"></i></span>
+                            Computer Hardware
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <hr class="m-0" />
+            <hr class="m-0" />
+            <section class="resume-section" id="awards">
+                <div class="resume-section-content">
+                    <h2 class="mb-5">Awards & Certifications</h2>
+                    <ul class="fa-ul mb-0">
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            AWS Cloud Practitioner Essentials (Second Edition)
+                        </li>
+                        <li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Project Managemnt
+                        </li>
+<li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            (ISC)² Candidate
+                        </li>
+<li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            NSE 1 Network Security Associate
+                        </li>
+<li>
+                            <span class="fa-li"><i class="fas fa-trophy text-warning"></i></span>
+                            Fortigate Firewall Administration
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </section>
+        </div>
+        -->
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+    </body>
+</html>
