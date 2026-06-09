@@ -95,7 +95,7 @@ a:hover {
    ============================================= */
 
 #logo {
-  margin: 2em auto 0;
+  margin: 0.4em auto 0;
   overflow-x: auto;
   max-width: 100%;
   padding: 0 1em;
@@ -157,17 +157,17 @@ a:hover {
    ============================================= */
 
 .terminal {
-  padding: 1em;
+  padding: 0.7em 1em;
   border: 1px solid #00FF00;
   width: min(725px, 94vw);
   display: block;
-  margin: 0 auto 2em;
+  margin: 0 auto 1em;
   text-align: left;
   background-color: #000d00;
   overflow-y: auto;
-  max-height: 60vh;
-  font-size: clamp(0.75rem, 2vw, 1rem);
-  line-height: 1.6;
+  max-height: 52vh;
+  font-size: clamp(0.72rem, 1.8vw, 0.9rem);
+  line-height: 1.5;
 }
 
 .cursor {
