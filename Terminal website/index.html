@@ -24,11 +24,15 @@
 </head>
 <body>
 
+<!-- Background noise canvas -->
+<canvas id="noise-canvas"></canvas>
+
 <nav class="main_menu_container">
   <ul id="main_menu">
     <li><a href="index.html" class="active">HOME</a></li>
     <li><a href="about.html">ABOUT</a></li>
     <li><a href="login.html">LOGIN</a></li>
+    <li><a href="https://www.jimgogarty.com" target="_blank">JIMGOGARTY.COM</a></li>
   </ul>
 </nav>
 
@@ -42,72 +46,189 @@
 ░╚════╝░╚═╝╚═╝░░░░░╚═╝░╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░░░╚═╝░░░░░░╚═╝░░</pre>
 </div>
 
-<p id="tagline">"Always a Pleasure, Never a Chore."</p>
-
 <div id="box_title_container">
   <div id="box_title">WELCOME, GUEST</div>
 </div>
 
-<div class="terminal">
-  <p><span id="text"></span><span class="cursor"></span></p>
+<div class="terminal" id="main-terminal">
+  <div id="neofetch-layout">
+
+    <pre id="ascii-art" class="neo-art"><span class="art-bright">     ██╗ ██████╗ </span>
+<span class="art-bright">     ██║██╔════╝ </span>
+<span class="art-bright">     ██║██║  ███╗</span>
+<span class="art-bright">██   ██║██║   ██║</span>
+<span class="art-bright">╚█████╔╝╚██████╔╝</span>
+<span class="art-bright"> ╚════╝  ╚═════╝ </span>
+<span class="art-dim">─────────────────</span>
+<span class="art-dim"> JIM  GOGARTY    </span>
+<span class="art-dim"> DROGHEDA, IE    </span>
+<span class="art-dim">─────────────────</span>
+<span class="art-dim"> OS    : JAGO OS </span>
+<span class="art-dim"> NODE  : TERMINAL</span>
+<span class="art-dim"> SHELL : MÁTHAIR </span>
+<span class="art-dim"> UPTIME: ALWAYS  </span>
+<span class="art-dim">─────────────────</span></pre>
+
+    <div id="boot-text-col">
+      <span id="text"></span><span class="cursor"></span>
+    </div>
+
+  </div>
 </div>
 
 <script>
-  const lines = [
-    "JIMGOGARTY PERSONAL TERMINAL  //  V2.0",
-    "COPYRIGHT (C) 2025 JIM GOGARTY  //  DROGHEDA, IRELAND",
-    "────────────────────────────────────────────────────",
-    "",
+  // ── Background noise ──────────────────────────────────────────
+  const canvas = document.getElementById('noise-canvas');
+  const ctx = canvas.getContext('2d');
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*></?;:[]{}|\\~`';
+  const colW = 14;
+  let cols, drops;
+
+  function initNoise() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    cols = Math.floor(canvas.width / colW);
+    drops = Array(cols).fill(0).map(() => Math.floor(Math.random() * -50));
+  }
+
+  function drawNoise() {
+    ctx.fillStyle = 'rgba(0, 10, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '11px Courier New';
+    for (let i = 0; i < cols; i++) {
+      const brightness = Math.random();
+      if (brightness > 0.85) {
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.55)';
+      } else if (brightness > 0.6) {
+        ctx.fillStyle = 'rgba(0, 180, 0, 0.25)';
+      } else {
+        ctx.fillStyle = 'rgba(0, 80, 0, 0.12)';
+      }
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(ch, i * colW, drops[i] * colW);
+      if (drops[i] * colW > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+
+  initNoise();
+  window.addEventListener('resize', initNoise);
+  setInterval(drawNoise, 80);
+
+  // ── Terminal elements ─────────────────────────────────────────
+  const textEl   = document.getElementById("text");
+  const terminal = document.getElementById("main-terminal");
+
+  function appendHTML(html) {
+    textEl.innerHTML += html;
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function appendText(str) {
+    str.split('').forEach(ch => {
+      textEl.innerHTML += ch === '\n' ? '<br>' : '<span>' + ch + '</span>';
+    });
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  // ── Phase 1: boot lines (fast typewriter) ─────────────────────
+  const bootLines = [
+    "JAGO BOOT LOADER V1.0",
+    "──────────────────────────────────────────",
+    ">>> MEMORY .................. OK",
+    ">>> VAULT CONNECTION ........ FAIL",
+    ">>> NETWORK: JIMGOGARTY.COM . ONLINE",
+    ">>> NO HOLOTAPE FOUND",
+    ">>> CAKE PROBABILITY ........ INSUFFICIENT DATA",
+    ""
+  ];
+
+  // ── Phase 3: main content (slower typewriter) ─────────────────
+  const mainLines = [
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ WHOAMI",
     "",
-    "  Jim Gogarty  //  BBS · HDip Computer Science · CC",
+    "  Jim Gogarty  //  BBS · HDip CS · CC",
     "  IT Infrastructure & Operations Professional",
-    "  10+ Years Experience · Pharma · Multi-Site Environments",
+    "  10+ Years · Pharma · Multi-Site Environments",
     "  LinkedIn Top Technical Support Voice (2023)",
-    "",
-    "GUEST@TERMINAL.JIMGOGARTY.COM:~$ CONTACT",
-    "",
-    "  EMAIL  :  hey@jimgogarty.com",
-    "  WEB    :  https://www.jimgogarty.com",
-    "  LINKED :  https://www.linkedin.com/in/jim-gogarty/",
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ NAVIGATE",
     "",
-    "  > ABOUT  -- View my CV and experience",
+    "  > ABOUT  -- View CV and experience",
     "  > LOGIN  -- Authorised users only...",
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ _"
   ];
 
-  const fullText = lines.join("\n");
-  const speed = 18;
-
-  let i = 0;
-  const terminal = document.querySelector(".terminal");
-  const textElement = document.querySelector("#text");
-
-  function typeText() {
-    if (i < fullText.length) {
-      const char = fullText.charAt(i);
-      textElement.innerHTML += char === "\n" ? "<br>" : "<span>" + char + "</span>";
-      i++;
-      setTimeout(typeText, speed);
-      terminal.scrollTop = terminal.scrollHeight;
+  function typeLines(lines, speed, onDone) {
+    const full = lines.join('\n');
+    let i = 0;
+    function step() {
+      if (i < full.length) {
+        const ch = full.charAt(i++);
+        textEl.innerHTML += ch === '\n' ? '<br>' : '<span>' + ch + '</span>';
+        terminal.scrollTop = terminal.scrollHeight;
+        setTimeout(step, speed);
+      } else {
+        onDone && onDone();
+      }
     }
+    step();
   }
 
-  setTimeout(typeText, 400);
+  // ── Phase 2: animated progress bar (~6 seconds) ───────────────
+  const BAR_STEPS  = 20;
+  const BAR_TOTAL  = 6000;
+  const STEP_DELAY = BAR_TOTAL / BAR_STEPS;
+
+  function animateProgressBar(onDone) {
+    appendText('LOADING SUBJECT DATA... [');
+
+    // insert a live bar span we will update in place
+    const barSpan = document.createElement('span');
+    barSpan.id = 'progress-bar';
+    textEl.appendChild(barSpan);
+
+    const closingSpan = document.createElement('span');
+    textEl.appendChild(closingSpan);
+
+    let step = 0;
+
+    function tick() {
+      step++;
+      const filled = Math.round((step / BAR_STEPS) * BAR_STEPS);
+      const pct    = Math.round((step / BAR_STEPS) * 100);
+      barSpan.textContent     = '█'.repeat(filled) + '░'.repeat(BAR_STEPS - filled);
+      closingSpan.textContent = '] ' + pct + '%';
+      terminal.scrollTop = terminal.scrollHeight;
+
+      if (step < BAR_STEPS) {
+        setTimeout(tick, STEP_DELAY);
+      } else {
+        // done — pause then clear and start main content
+        setTimeout(() => {
+          textEl.innerHTML = '';
+          onDone && onDone();
+        }, 800);
+      }
+    }
+
+    tick();
+  }
+
+  // ── Kick it off ───────────────────────────────────────────────
+  setTimeout(() => {
+    typeLines(bootLines, 30, () => {
+      animateProgressBar(() => {
+        typeLines(mainLines, 45, null);
+      });
+    });
+  }, 500);
 </script>
 
 </body>
 <footer>
   <span>Jim Gogarty &copy; 2025</span>
-  <div class="social-icons">
-    <a class="social-icon" href="https://www.linkedin.com/in/jim-gogarty/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-    <a class="social-icon" href="https://github.com/jimgogarty" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    <a class="social-icon" href="https://twitter.com/Jimberly20" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    <a class="social-icon" href="https://www.jimgogarty.com" aria-label="Main Site"><i class="fas fa-globe"></i></a>
-  </div>
   <!-- Hello. Say hi if you're reading this. -->
 </footer>
 </html>
