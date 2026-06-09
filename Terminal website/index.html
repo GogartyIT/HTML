@@ -24,6 +24,9 @@
 </head>
 <body>
 
+<!-- Background noise canvas -->
+<canvas id="noise-canvas"></canvas>
+
 <nav class="main_menu_container">
   <ul id="main_menu">
     <li><a href="index.html" class="active">HOME</a></li>
@@ -48,21 +51,96 @@
   <div id="box_title">WELCOME, GUEST</div>
 </div>
 
-<div class="terminal">
-  <p><span id="text"></span><span class="cursor"></span></p>
+<div class="terminal" id="main-terminal">
+  <div id="neofetch-layout">
+
+    <pre id="ascii-art" class="neo-art">
+  .    *   .       .       *    .
+        _______________
+       |  _________    |
+       | |  __   __|   |
+   *   | | /  \ /  \   |    .
+       | | \  / \__/   |
+       | |__\__________|   *
+       |   ___________/|
+       |  /  JAGO     /|
+    .  | / SCI-DIV   / |
+       |/_____________/ |  .
+       |_____________|  /
+  *    |_____________| /     *
+       |_____________|/
+   .        * .    .     *    .
+    </pre>
+
+    <div id="boot-text-col">
+      <span id="text"></span><span class="cursor"></span>
+    </div>
+
+  </div>
 </div>
 
 <script>
-  const lines = [
-    "JIMGOGARTY PERSONAL TERMINAL  //  V2.0",
-    "COPYRIGHT (C) 2025 JIM GOGARTY  //  DROGHEDA, IRELAND",
-    "────────────────────────────────────────────────────",
+  // ── Background noise ──────────────────────────────────────────
+  const canvas = document.getElementById('noise-canvas');
+  const ctx = canvas.getContext('2d');
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*></?;:[]{}|\\~`';
+  const colW = 14;
+  let cols, drops;
+
+  function initNoise() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    cols = Math.floor(canvas.width / colW);
+    drops = Array(cols).fill(0).map(() => Math.floor(Math.random() * -50));
+  }
+
+  function drawNoise() {
+    ctx.fillStyle = 'rgba(0, 10, 0, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.font = '11px Courier New';
+    for (let i = 0; i < cols; i++) {
+      const brightness = Math.random();
+      if (brightness > 0.85) {
+        ctx.fillStyle = 'rgba(0, 255, 0, 0.55)';
+      } else if (brightness > 0.6) {
+        ctx.fillStyle = 'rgba(0, 180, 0, 0.25)';
+      } else {
+        ctx.fillStyle = 'rgba(0, 80, 0, 0.12)';
+      }
+      const ch = chars[Math.floor(Math.random() * chars.length)];
+      ctx.fillText(ch, i * colW, drops[i] * colW);
+      if (drops[i] * colW > canvas.height && Math.random() > 0.975) drops[i] = 0;
+      drops[i]++;
+    }
+  }
+
+  initNoise();
+  window.addEventListener('resize', initNoise);
+  setInterval(drawNoise, 80);
+
+  // ── Boot sequence then main content ───────────────────────────
+  const bootLines = [
+    "JAGO BOOT LOADER V1.0",
+    "──────────────────────────────────────────",
+    ">>> MEMORY .................. OK",
+    ">>> VAULT CONNECTION ........ FAIL",
+    ">>> NETWORK: JIMGOGARTY.COM . ONLINE",
+    ">>> NO HOLOTAPE FOUND",
+    ">>> CAKE PROBABILITY ........ INSUFFICIENT DATA",
+    "",
+    "LOADING SUBJECT DATA... ████████ 100%",
+    "",
+    "──────────────────────────────────────────",
+    "USCSS JIMGOGARTY // SCIENCE DIVISION",
+    "MU/TH/UR 6000 INTERFACE  //  DROGHEDA NODE",
+    "CREW STATUS: 1 ACTIVE",
+    "──────────────────────────────────────────",
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ WHOAMI",
     "",
-    "  Jim Gogarty  //  BBS · HDip Computer Science · CC",
+    "  Jim Gogarty  //  BBS · HDip CS · CC",
     "  IT Infrastructure & Operations Professional",
-    "  10+ Years Experience · Pharma · Multi-Site Environments",
+    "  10+ Years · Pharma · Multi-Site Environments",
     "  LinkedIn Top Technical Support Voice (2023)",
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ CONTACT",
@@ -73,30 +151,34 @@
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ NAVIGATE",
     "",
-    "  > ABOUT  -- View my CV and experience",
+    "  > ABOUT  -- View CV and experience",
     "  > LOGIN  -- Authorised users only...",
     "",
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ _"
   ];
 
-  const fullText = lines.join("\n");
-  const speed = 18;
-
+  const fullText = bootLines.join("\n");
   let i = 0;
-  const terminal = document.querySelector(".terminal");
-  const textElement = document.querySelector("#text");
+  const textEl = document.getElementById("text");
+  const terminal = document.getElementById("main-terminal");
+
+  // Vary speed: fast for boot lines, slower for content
+  function getSpeed(pos) {
+    const booted = fullText.indexOf("WHOAMI");
+    return pos < booted ? 12 : 22;
+  }
 
   function typeText() {
     if (i < fullText.length) {
       const char = fullText.charAt(i);
-      textElement.innerHTML += char === "\n" ? "<br>" : "<span>" + char + "</span>";
+      textEl.innerHTML += char === "\n" ? "<br>" : "<span>" + char + "</span>";
       i++;
-      setTimeout(typeText, speed);
+      setTimeout(typeText, getSpeed(i));
       terminal.scrollTop = terminal.scrollHeight;
     }
   }
 
-  setTimeout(typeText, 400);
+  setTimeout(typeText, 500);
 </script>
 
 </body>
