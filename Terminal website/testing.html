@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Terminal-style Scrolling Text</title>
+    <style>
+      body {
+        background-color: black;
+        color: green;
+        font-family: monospace;
+        font-size: 14px;
+        margin: 0;
+        overflow: hidden;
+      }
+      
+      .terminal {
+        height: 100vh;
+        width: 100vw;
+        overflow-y: scroll;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid green;
+      }
+
+      .cursor {
+        display: inline-block;
+        background-color: green;
+        width: 8px;
+        height: 14px;
+        margin-left: 4px;
+        animation: blink 1s linear infinite;
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="terminal">
+      <p>
+        <span id="text"></span><span class="cursor"></span>
+      </p>
+    </div>
+
+    <script>
+      const text = "I am interested in all things IT, Crypto and Technology\n\nNeed Help with IT on a Charity or Volunteer project,\nI would be glad to hear from you and have a Coffee";
+      const speed = 75; // in milliseconds
+
+      let i = 0;
+      let terminal = document.querySelector(".terminal");
+      let textElement = document.querySelector("#text");
+      let cursorElement = document.querySelector(".cursor");
+
+      function typeText() {
+        if (i < text.length) {
+          let char = text.charAt(i);
+          if (char === "\n") {
+            textElement.innerHTML += "<br>";
+          } else {
+            textElement.innerHTML += "<span>" + char + "</span>";
+          }
+          i++;
+          setTimeout(typeText, speed);
+        } else {
+          cursorElement.style.display = "none";
+        }
+
+        terminal.scrollTop = terminal.scrollHeight; // auto-scroll to bottom
+      }
+
+      setTimeout(typeText, speed);
+    </script>
+  </body>
+</html>
