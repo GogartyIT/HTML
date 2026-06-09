@@ -275,16 +275,23 @@ a:hover {
 }
 
 .neo-art {
-  font-size: 0.75rem;
-  line-height: 1.35;
-  color: #00cc00;
+  font-size: 0.85rem;
+  line-height: 1.45;
   margin: 0;
   flex-shrink: 0;
   white-space: pre;
   min-width: 18ch;
-  text-shadow: 0 0 6px rgba(0, 255, 0, 0.5);
   border-right: 1px solid #003c00;
   padding-right: 1em;
+}
+
+.art-bright {
+  color: #00FF00;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.7);
+}
+
+.art-dim {
+  color: #005500;
 }
 
 #boot-text-col {

@@ -54,23 +54,21 @@
 <div class="terminal" id="main-terminal">
   <div id="neofetch-layout">
 
-    <pre id="ascii-art" class="neo-art">
-  .    *   .       .       *    .
-        _______________
-       |  _________    |
-       | |  __   __|   |
-   *   | | /  \ /  \   |    .
-       | | \  / \__/   |
-       | |__\__________|   *
-       |   ___________/|
-       |  /  JAGO     /|
-    .  | / SCI-DIV   / |
-       |/_____________/ |  .
-       |_____________|  /
-  *    |_____________| /     *
-       |_____________|/
-   .        * .    .     *    .
-    </pre>
+    <pre id="ascii-art" class="neo-art"><span class="art-bright">     ██╗ ██████╗ </span>
+<span class="art-bright">     ██║██╔════╝ </span>
+<span class="art-bright">     ██║██║  ███╗</span>
+<span class="art-bright">██   ██║██║   ██║</span>
+<span class="art-bright">╚█████╔╝╚██████╔╝</span>
+<span class="art-bright"> ╚════╝  ╚═════╝ </span>
+<span class="art-dim">─────────────────</span>
+<span class="art-dim"> JIM  GOGARTY    </span>
+<span class="art-dim"> DROGHEDA, IE    </span>
+<span class="art-dim">─────────────────</span>
+<span class="art-dim"> OS    : JAGO OS </span>
+<span class="art-dim"> NODE  : TERMINAL</span>
+<span class="art-dim"> SHELL : MU/TH/UR</span>
+<span class="art-dim"> UPTIME: ALWAYS  </span>
+<span class="art-dim">─────────────────</span></pre>
 
     <div id="boot-text-col">
       <span id="text"></span><span class="cursor"></span>
@@ -118,7 +116,23 @@
   window.addEventListener('resize', initNoise);
   setInterval(drawNoise, 80);
 
-  // ── Boot sequence then main content ───────────────────────────
+  // ── Terminal elements ─────────────────────────────────────────
+  const textEl   = document.getElementById("text");
+  const terminal = document.getElementById("main-terminal");
+
+  function appendHTML(html) {
+    textEl.innerHTML += html;
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  function appendText(str) {
+    str.split('').forEach(ch => {
+      textEl.innerHTML += ch === '\n' ? '<br>' : '<span>' + ch + '</span>';
+    });
+    terminal.scrollTop = terminal.scrollHeight;
+  }
+
+  // ── Phase 1: boot lines (fast typewriter) ─────────────────────
   const bootLines = [
     "JAGO BOOT LOADER V1.0",
     "──────────────────────────────────────────",
@@ -127,9 +141,11 @@
     ">>> NETWORK: JIMGOGARTY.COM . ONLINE",
     ">>> NO HOLOTAPE FOUND",
     ">>> CAKE PROBABILITY ........ INSUFFICIENT DATA",
-    "",
-    "LOADING SUBJECT DATA... ████████ 100%",
-    "",
+    ""
+  ];
+
+  // ── Phase 3: main content (slower typewriter) ─────────────────
+  const mainLines = [
     "──────────────────────────────────────────",
     "USCSS JIMGOGARTY // SCIENCE DIVISION",
     "MU/TH/UR 6000 INTERFACE  //  DROGHEDA NODE",
@@ -157,28 +173,70 @@
     "GUEST@TERMINAL.JIMGOGARTY.COM:~$ _"
   ];
 
-  const fullText = bootLines.join("\n");
-  let i = 0;
-  const textEl = document.getElementById("text");
-  const terminal = document.getElementById("main-terminal");
-
-  // Vary speed: fast for boot lines, slower for content
-  function getSpeed(pos) {
-    const booted = fullText.indexOf("WHOAMI");
-    return pos < booted ? 12 : 22;
-  }
-
-  function typeText() {
-    if (i < fullText.length) {
-      const char = fullText.charAt(i);
-      textEl.innerHTML += char === "\n" ? "<br>" : "<span>" + char + "</span>";
-      i++;
-      setTimeout(typeText, getSpeed(i));
-      terminal.scrollTop = terminal.scrollHeight;
+  function typeLines(lines, speed, onDone) {
+    const full = lines.join('\n');
+    let i = 0;
+    function step() {
+      if (i < full.length) {
+        const ch = full.charAt(i++);
+        textEl.innerHTML += ch === '\n' ? '<br>' : '<span>' + ch + '</span>';
+        terminal.scrollTop = terminal.scrollHeight;
+        setTimeout(step, speed);
+      } else {
+        onDone && onDone();
+      }
     }
+    step();
   }
 
-  setTimeout(typeText, 500);
+  // ── Phase 2: animated progress bar (~6 seconds) ───────────────
+  const BAR_STEPS  = 20;
+  const BAR_TOTAL  = 6000;
+  const STEP_DELAY = BAR_TOTAL / BAR_STEPS;
+
+  function animateProgressBar(onDone) {
+    appendText('LOADING SUBJECT DATA... [');
+
+    // insert a live bar span we will update in place
+    const barSpan = document.createElement('span');
+    barSpan.id = 'progress-bar';
+    textEl.appendChild(barSpan);
+
+    const closingSpan = document.createElement('span');
+    textEl.appendChild(closingSpan);
+
+    let step = 0;
+
+    function tick() {
+      step++;
+      const filled = Math.round((step / BAR_STEPS) * BAR_STEPS);
+      const pct    = Math.round((step / BAR_STEPS) * 100);
+      barSpan.textContent     = '█'.repeat(filled) + '░'.repeat(BAR_STEPS - filled);
+      closingSpan.textContent = '] ' + pct + '%';
+      terminal.scrollTop = terminal.scrollHeight;
+
+      if (step < BAR_STEPS) {
+        setTimeout(tick, STEP_DELAY);
+      } else {
+        // done — pause then clear and start main content
+        setTimeout(() => {
+          textEl.innerHTML = '';
+          onDone && onDone();
+        }, 800);
+      }
+    }
+
+    tick();
+  }
+
+  // ── Kick it off ───────────────────────────────────────────────
+  setTimeout(() => {
+    typeLines(bootLines, 12, () => {
+      animateProgressBar(() => {
+        typeLines(mainLines, 22, null);
+      });
+    });
+  }, 500);
 </script>
 
 </body>
